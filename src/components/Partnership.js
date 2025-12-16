@@ -27,9 +27,9 @@ export default function Partnership() {
 
   return (
     <section className={styles.partnershipSection}>
-      <div className={styles.container}>
-        {/* Partnership CTA */}
-        <div className={styles.ctaSection}>
+      {/* Partnership CTA */}
+      <div className={styles.ctaSection}>
+        <div className={styles.ctaContent}>
           <h2 className={styles.ctaTitle}>
             Interested in <span className={styles.highlight}>partnering</span> with us?
           </h2>
@@ -38,8 +38,10 @@ export default function Partnership() {
           </p>
           <button className={styles.contactBtn}>Contact us</button>
         </div>
+      </div>
 
-        {/* Latest Insights */}
+      {/* Latest Insights */}
+      <div className={styles.container}>
         <div className={styles.insightsSection}>
           <h2 className={styles.insightsTitle}>Latest Insights</h2>
           <p className={styles.insightsSubtitle}>

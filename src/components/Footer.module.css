@@ -24,6 +24,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 20px;
+  margin-left: -8px;
 }
 
 .logoText {
@@ -54,20 +55,17 @@ line-height: 24.375px; /* 162.5% */
 }
 
 .socialIcon {
-  width: 40px;
-  height: 40px;
-  background-color: #e50044;
-  border-radius: 4px;
+  
   display: flex;
   align-items: center;
   justify-content: center;
   color: #ffffff;
-  transition: background-color 0.3s ease;
+  transition: transform 0.3s ease;
   text-decoration: none;
 }
 
 .socialIcon:hover {
-  background-color: #ff1a5c;
+  transform: scale(1.1);
 }
 
 .socialIcon svg {
@@ -113,18 +111,33 @@ line-height: 21px; /* 150% */
 }
 
 .columnTitle {
-  font-size: 14px;
-  font-weight: 700;
-  color: #ffffff;
+ color: #FFF;
+text-align: right;
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: 24px; /* 150% */
+letter-spacing: 0.4px;
+text-transform: uppercase;
   margin-bottom: 20px;
-  letter-spacing: 0.5px;
+  text-align: right;
 }
 
 .linkList {
+color: rgba(255, 255, 255, 0.60);
+text-align: right;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 150% */
+
   list-style: none;
   padding: 0;
   margin: 0;
   display: flex;
+  text-align: right;
   flex-direction: column;
   gap: 12px;
 }
@@ -153,8 +166,12 @@ line-height: 21px; /* 150% */
 }
 
 .copyright {
-  color: #666;
-  font-size: 13px;
+ color: rgba(255, 255, 255, 0.40);
+font-family: Montserrat;
+font-size: 13px;
+font-style: normal;
+font-weight: 400;
+line-height: 19.5px; /* 150% */
   margin: 0;
 }
 

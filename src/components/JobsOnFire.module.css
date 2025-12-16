@@ -1,6 +1,6 @@
 .jobsSection {
   background: #151515;
-  padding: 5rem 2rem;
+  padding: 10rem 2rem;
 }
 
 .container {
@@ -35,7 +35,7 @@ line-height: 27px; /* 150% */
   /* grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); */
     grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 1.5rem;
+  gap: 3.1rem;
   margin-bottom: 4rem;
 }
 
@@ -51,10 +51,13 @@ box-shadow: 0 0 20px 0 rgba(254, 0, 50, 0.00);
 }
 
 .jobCard:hover {
-  border-color: var(--primary-red);
-  box-shadow: 0 8px 24px rgba(227, 30, 36, 0.2);
-}
 
+  
+  border-color: var(--primary-red);
+  box-shadow: rgba(254, 0, 50, 0.35) 0px 0px 30px;
+
+}
+  
 .jobHeader {
   display: flex;
   gap: 1rem;

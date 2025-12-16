@@ -1,11 +1,30 @@
+'use client';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
+import { useState, useEffect } from 'react';
 
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className={styles.header}>
+    <header 
+      className={`${styles.header} ${isScrolled ? styles.blurred : ''}`}
+      style={{
+        backdropFilter: isScrolled ? 'blur(20px)' : 'none',
+        WebkitBackdropFilter: isScrolled ? 'blur(20px)' : 'none',
+      }}
+    >
       <div className={styles.container}>
      
         
@@ -14,17 +33,17 @@ export default function Header() {
         <Image
           src="/images/logo_tribal.png"
           alt="Tribal Jobs"
-          width={60}
-          height={60}
+          width={52}
+          height={52}
         />
       </Link>
 
           <Link href="/jobs">Jobs</Link>
           <Link href="/companies">Companies</Link>
-          <a href="#news">News</a>
-          <a href="#pricing">Pricing</a>
+          <Link href="/news">News</Link>
+          <Link href="/pricing">Pricing</Link>
           <Link href="/about-us">About Us</Link>
-          <a href="#contact">Contact</a>
+          <Link href="/contact">Contact</Link>
         </nav>
 
         <div className={styles.actions}>

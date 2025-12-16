@@ -2,6 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 import styles from './page.module.css';
+import Footer from '@/components/Footer';
 
 export default function JobDetailPage() {
   const params = useParams();
@@ -200,6 +201,7 @@ export default function JobDetailPage() {
           </aside>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 }

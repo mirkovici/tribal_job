@@ -1,18 +1,25 @@
 .partnershipSection {
-  background: #1A1A1A;
-  padding: 5rem 2rem;
+  padding: 0;
 }
 
 .container {
   max-width: 1440px;
   margin: 0 auto;
+  padding: 0 0rem 5rem;
 }
 
 /* CTA Section */
 .ctaSection {
-  text-align: center;
-  padding: 4rem 0;
+  width: 100%;
+  background: #1A1A1A;
+  padding: 5rem 2rem;
   margin-bottom: 5rem;
+}
+
+.ctaContent {
+  max-width: 1440px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .ctaTitle {
@@ -23,7 +30,7 @@
 }
 
 .highlight {
-  color: var(--primary-red);
+  color: #FE0032;
 }
 
 .ctaSubtitle {
@@ -33,21 +40,27 @@
 }
 
 .contactBtn {
-  background: var(--primary-red);
-  color: #ffffff;
+border-radius: 7px;
+background: linear-gradient(180deg, #FE0032 0%, #98001E 100%);  color: #ffffff;
   border: none;
   padding: 1rem 2.5rem;
-  font-size: 1.1rem;
-  font-weight: 600;
-  border-radius: 6px;
+color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 500;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
   cursor: pointer;
   transition: all 0.3s;
+  margin: 0 auto;
 }
 
 .contactBtn:hover {
-  background: #c41a1f;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(227, 30, 36, 0.4);
+  transform: scale(1.05);
 }
 
 /* Latest Insights */
@@ -56,17 +69,22 @@
 }
 
 .insightsTitle {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #ffffff;
-  text-align: center;
+  text-align: right;
   margin-bottom: 1rem;
 }
 
 .insightsSubtitle {
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  font-size: 1rem;
+  text-align: right;
+  color: rgba(255, 255, 255, 0.60);
+text-align: right;
+font-family: Montserrat;
+font-size: 18px;
+font-style: normal;
+font-weight: 400;
+line-height: 27px; /* 150% */
   margin-bottom: 3rem;
 }
 
@@ -74,12 +92,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  margin: 4.5rem 0rem;
 }
 
 .insightCard {
-  background: #252525;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
+
+border-radius: 7px;
+border: 1px solid rgba(255, 255, 255, 0.08);
+background: rgba(255, 255, 255, 0.03);
+box-shadow: 0 0 20px 0 rgba(254, 0, 50, 0.00);
+
   overflow: hidden;
   transition: all 0.3s;
   display: flex;
@@ -92,8 +114,7 @@
 
 .insightCard:hover {
   border-color: var(--primary-red);
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(227, 30, 36, 0.2);
+  box-shadow: rgba(254, 0, 50, 0.35) 0px 0px 30px;
 }
 
 .imageWrapper {
@@ -135,13 +156,18 @@
 }
 
 .badge {
+border-radius: 7px;
+background: rgba(254, 0, 50, 0.20);
+color: #FE0032;
+font-family: Montserrat;
+font-size: 11px;
+font-style: normal;
+font-weight: 600;
+line-height: 16.5px; /* 150% */
+letter-spacing: 0.55px;
+text-transform: uppercase;
   display: inline-block;
-  background: rgba(227, 30, 36, 0.2);
-  color: var(--primary-red);
   padding: 0.3rem 0.8rem;
-  border-radius: 4px;
-  font-size: 0.75rem;
-  font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   width: fit-content;
@@ -149,11 +175,13 @@
 }
 
 .cardTitle {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #ffffff;
+ color: #FFF;
+font-family: Montserrat;
+font-size: 22px;
+font-style: normal;
+font-weight: 700;
+line-height: 27.5px; /* 125% */
   margin-bottom: 0.75rem;
-  line-height: 1.4;
 }
 
 .insightCard.featured .cardTitle {
@@ -161,29 +189,36 @@
 }
 
 .cardDescription {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.95rem;
-  line-height: 1.6;
+ color: rgba(255, 255, 255, 0.60);
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22.75px; /* 162.5% */
   margin-bottom: 1.5rem;
   flex: 1;
 }
 
 .readMoreBtn {
-  background: var(--primary-red);
-  color: #ffffff;
+border-radius: 7px;
+background: linear-gradient(180deg, #FE0032 0%, #98001E 100%);  color: #ffffff;
   border: none;
+
+color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+
   padding: 0.75rem 1.5rem;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 6px;
   cursor: pointer;
   transition: all 0.3s;
   width: fit-content;
 }
 
 .readMoreBtn:hover {
-  background: #c41a1f;
-  transform: translateX(4px);
+ transform: scale(1.04);
 }
 
 @media (max-width: 1024px) {

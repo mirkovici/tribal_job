@@ -44,23 +44,26 @@ line-height: 29.25px; /* 162.5% */
 }
 
 .exploreBtn {
-border-radius: 7px;
+  height: 50px;
 background: linear-gradient(180deg, #FE0032 0%, #98001E 100%);
+border-radius: 7px;
 padding: 10px 31.125px 10px 32px;
-
+border: none;
   color: #FFF;
 text-align: center;
 font-family: Montserrat;
 font-size: 20px;
 font-style: normal;
 font-weight: 500;
-line-height: 30px; /* 150% */
   cursor: pointer;
   transition: all 0.3s;
   text-decoration: none;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.exploreBtn:focus {
+  outline: none;
 }
 
 .exploreBtn:hover {
@@ -70,7 +73,7 @@ line-height: 30px; /* 150% */
 /* Market Insights */
 .marketSection {
   margin-top: 0;
-  padding: 5rem 2rem;
+  padding: 10rem 0rem;
 }
 
 .marketTitle {
@@ -118,7 +121,7 @@ box-shadow: 0 0 20px 0 rgba(254, 0, 50, 0.00);
 
 .statCard:hover {
   border-color: var(--primary-red);
-  background: rgba(227, 30, 36, 0.05);
+  box-shadow: rgba(254, 0, 50, 0.35) 0px 0px 30px;
 }
 
 .statIcon {
