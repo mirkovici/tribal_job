@@ -320,7 +320,7 @@ export default function AboutUs() {
           {/* Mission Section */}
           <div className={styles.missionSection}>
             <div className={styles.missionCard}>
-              <h2 className={styles.sectionTitle}>Our Mission</h2>
+              <h2 className={styles.missionTitle}>Our Mission</h2>
               <div className={styles.missionContent}>
                 <p>
                   Tribal Jobs was born from a shared passion for gaming and a vision to revolutionize how talent connects within the gaming industry. We're a small group of friends who decided to turn our love for gaming into something meaningful—a platform that contributes to the growth of the gaming industry, both locally and globally.
@@ -349,8 +349,8 @@ export default function AboutUs() {
               >
                 <div className={styles.cardHeader}>
                   <div className={styles.iconBox}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 1C6.48 1 2 5.48 2 11v10h4v-2h12v2h4V11c0-5.52-4.48-10-10-10zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm.5-13h-1v6h1v-6zm0 8h-1v1h1v-1z" fill="#FE0032"/>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
                     </svg>
                   </div>
                   <h3>Privacy Policy</h3>
@@ -367,11 +367,12 @@ export default function AboutUs() {
               >
                 <div className={styles.cardHeader}>
                   <div className={styles.iconBox}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-8-6z" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <polyline points="14 2 14 8 20 8" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <line x1="12" y1="19" x2="12" y2="5" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <line x1="9" y1="12" x2="15" y2="12" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"/>
+                      <path d="M14 2v5a1 1 0 0 0 1 1h5"/>
+                      <path d="M10 9H8"/>
+                      <path d="M16 13H8"/>
+                      <path d="M16 17H8"/>
                     </svg>
                   </div>
                   <h3>Terms of Use</h3>
@@ -388,8 +389,13 @@ export default function AboutUs() {
               >
                 <div className={styles.cardHeader}>
                   <div className={styles.iconBox}>
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11zm3.5 6.5c2.33 0 4.31-1.46 5.11-3.5H6.89c.8 2.04 2.78 3.5 5.11 3.5z" fill="#FE0032"/>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#FE0032" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/>
+                      <path d="M8.5 8.5v.01"/>
+                      <path d="M16 15.5v.01"/>
+                      <path d="M12 12v.01"/>
+                      <path d="M11 17v.01"/>
+                      <path d="M7 14v.01"/>
                     </svg>
                   </div>
                   <h3>Cookie Policy</h3>
@@ -431,11 +437,12 @@ export default function AboutUs() {
             <div className={styles.modalHeader}>
               <h2>{modalData.title}</h2>
               <button 
-                className={styles.closeBtn}
+                className={styles.closeButton}
                 onClick={closeModal}
+                aria-label="Close modal"
               >
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
               </button>
             </div>

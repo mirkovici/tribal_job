@@ -1,0 +1,262 @@
+.sidebar {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+.sidebarHeader {
+  display: none;
+}
+
+.sidebarTitle {
+  display: none;
+}
+
+.closeSidebarBtn {
+  display: none;
+}
+
+.filterHeader {
+  margin-bottom: 2rem;
+}
+
+.clearBtn {
+  color: #FFF;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.clearBtn:hover {
+  border-color: var(--primary-red);
+  color: var(--primary-red);
+}
+
+.filterFooter {
+  padding-top: 2rem;
+}
+
+.clearBtnBottom {
+  color: #FFF;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  width: 100%;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  padding: 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+
+.clearBtnBottom:hover {
+  border-color: var(--primary-red);
+  color: var(--primary-red);
+}
+
+.filterGroup {
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.filterGroup:last-child {
+  border-bottom: none;
+}
+
+.filterGroup .filterHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  transition: color 0.3s;
+}
+
+.filterGroup .filterHeader:hover {
+  color: #FE0032;
+}
+
+.filterGroup .filterHeader:hover .filterTitle {
+  color: #FE0032;
+}
+
+.filterGroup .filterHeader:hover .filterArrow {
+  color: #FE0032;
+}
+
+.filterTitle {
+  color: #FFF;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  text-align: left;
+  margin: 0;
+  transition: color 0.3s;
+}
+
+.filterArrow {
+  color: rgba(255, 255, 255, 0.6);
+  transition: all 0.3s;
+  flex-shrink: 0;
+}
+
+.filterArrow.collapsed {
+  transform: rotate(-90deg);
+}
+
+.searchFilter {
+  border-radius: 7px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 0.75rem;
+}
+
+.searchIcon {
+  color: rgba(255, 255, 255, 0.5);
+  flex-shrink: 0;
+}
+
+.filterSearch {
+  width: 100%;
+  background: transparent;
+  border: none;
+  color: #ffffff;
+  padding: 0.5rem 0;
+  font-size: 0.85rem;
+  outline: none;
+}
+
+.filterSearch::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.checkboxLabel:hover {
+  color: #ffffff;
+}
+
+.checkboxLabel input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  background: #252424;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  position: relative;
+  transition: all 0.3s;
+}
+
+.checkboxLabel input[type="checkbox"]:checked {
+  background: var(--primary-red);
+  border-color: var(--primary-red);
+}
+
+.checkboxLabel input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+@media (max-width: 968px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #0A0A0A;
+    z-index: 1999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: left 0.3s ease;
+    padding: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar.sidebarOpen {
+    left: 0;
+  }
+
+  .sidebarHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 0 1.5rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 1rem;
+  }
+
+  .sidebarTitle {
+    display: block;
+    color: #FFF;
+    font-family: Montserrat;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  .closeSidebarBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+  }
+
+  .closeSidebarBtn:hover {
+    color: #FE0032;
+  }
+
+  .filterHeader:first-of-type {
+    padding-top: 0;
+  }
+}

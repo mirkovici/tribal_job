@@ -124,7 +124,7 @@ backdrop-filter: blur(5px);
 .container {
   max-width: 1440px;
   margin: 0 auto;
-  padding: 0 0 4rem;
+  padding: 0 0rem 4rem;
   display: flex;
   gap: 2rem;
 }
@@ -132,6 +132,22 @@ backdrop-filter: blur(5px);
 .sidebar {
   width: 250px;
   flex-shrink: 0;
+}
+
+.filtersBtn {
+  display: none;
+}
+
+.closeSidebarBtn {
+  display: none;
+}
+
+.overlay {
+  display: none;
+}
+
+.sidebarOverlay {
+  display: none;
 }
 
 .filterHeader {
@@ -386,6 +402,8 @@ line-height: 48px; /* 150% */
 }
 
 .jobCard {
+  position: relative;
+  overflow: hidden;
   display: block;
   background: #1E1E1E;
   border: 2px solid rgba(255, 255, 255, 0.08);
@@ -397,12 +415,43 @@ line-height: 48px; /* 150% */
   cursor: default;
 }
 
-.jobCard:not(.expanded):hover {
-  border-color: #FE0032;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(254, 0, 50, 0.25); /* soft red shadow */
-
+.projectBanner {
+  position: absolute;
+  top: 12px;
+  left: -35px;
+  width: 150px;
+  height: 30px;
+  background: #FE0032;
+  filter: drop-shadow(0 0 1px #FE0032);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+  z-index: 10;
 }
+
+.projectBanner span {
+ color: #FFF;
+text-shadow: 0 0 2px rgba(255, 255, 255, 0.80);
+font-family: Montserrat;
+font-size: 10px;
+margin-left: -10px;
+font-style: normal;
+font-weight: 700;
+line-height: 15px; /* 150% */
+  text-transform: uppercase;
+}
+
+
+.jobCard:not(.expanded):hover {
+ 
+    border-color: #FE0032;
+
+  box-shadow: rgba(254, 0, 50, 0) 0px 0px 20px;
+}
+
+
+
 
 .jobCard.expanded {
  border-radius: 7px;
@@ -439,6 +488,8 @@ box-shadow: 0 0 25px 0 rgba(254, 0, 50, 0.20), 0 0 60px 0 rgba(254, 0, 50, 0.03)
 
 .jobInfo {
   flex: 1;
+  min-width: 0;
+  padding-right: 2rem;
 }
 
 .jobTitle {
@@ -446,6 +497,8 @@ box-shadow: 0 0 25px 0 rgba(254, 0, 50, 0.20), 0 0 60px 0 rgba(254, 0, 50, 0.03)
   font-weight: 700;
   color: #ffffff;
   margin-bottom: 0.35rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .company {
@@ -723,13 +776,107 @@ font-weight: 700;
   border-color: var(--primary-red);
 }
 
+/* Medium desktop styles - matching header and footer */
+@media (max-width: 1500px) and (min-width: 1101px) {
+  .container {
+    padding: 0 2.5rem 4rem;
+  }
+}
+
+/* Tablet styles - matching header and footer */
+@media (max-width: 1100px) and (min-width: 769px) {
+  .container {
+    padding: 0 1.5rem 4rem;
+  }
+}
+
 @media (max-width: 968px) {
+  .pageTitle{
+    font-size: 2rem;
+  }
+  .avatar{
+    width: 70px;
+    height: 70px;
+    
+  }
   .container {
     flex-direction: column;
+    padding: 0 1rem 4rem;
+    position: relative;
+  }
+
+  .filtersBtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: fixed;
+    bottom: 2rem;
+    right: 1rem;
+    background: linear-gradient(180deg, #FE0032 0%, #98001E 100%);
+    color: #FFF;
+    border: none;
+    border-radius: 25px;
+    padding: 0.75rem 1.5rem;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    z-index: 100;
+    box-shadow: 0 4px 12px rgba(254, 0, 50, 0.4);
+  }
+
+  .sidebarOverlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1998;
   }
 
   .sidebar {
-    width: 100%;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 300px;
+    height: 100vh;
+    background: #0A0A0A;
+    z-index: 1999;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    transition: left 0.3s ease;
+    padding: 1rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .sidebar.sidebarOpen {
+    left: 0;
+  }
+
+  .closeSidebarBtn {
+    display: block;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.3s;
+    z-index: 2000;
+  }
+
+  .closeSidebarBtn:hover {
+    color: #FE0032;
+  }
+
+  .filterHeader {
+    position: relative;
+    padding-top: 2rem;
   }
 
   .resultsHeader {

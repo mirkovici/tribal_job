@@ -311,6 +311,20 @@ export default function PricingPage() {
           </div>
         </div>
       </section>
+      <section className={styles.customPackageSection}>
+        <div>
+          <h2 className={styles.customPackageTitle}>Need more than one job post?</h2>
+          <p className={styles.customPackageText}>
+            If you're planning to hire for multiple positions, we can create a custom package tailored to your needs. Get in touch and we'll help you build the most cost-effective and high-visibility plan for your studio.
+          </p>
+          <button
+            className={styles.customPackageBtn}
+            onClick={() => window.open('mailto:info@yourdomain.com?subject=Custom%20Job%20Post%20Package', '_blank')}
+          >
+            Schedule a Call
+          </button>
+        </div>
+      </section>
 
       <Footer />
     </div>

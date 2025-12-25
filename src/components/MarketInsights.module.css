@@ -2,7 +2,13 @@
 .projectHeaderDiv {
   background: #1A1A1A;
   width: 100%;
-  padding: 3rem 0;
+  padding: 3rem 2.5rem;
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .projectHeaderDiv {
+    padding: 3rem 1.5rem;
+  }
 }
 
 .insightsSection {
@@ -74,6 +80,12 @@ font-weight: 500;
 .marketSection {
   margin-top: 0;
   padding: 10rem 0rem;
+}
+
+@media (min-width: 769px) and (max-width: 1500px) {
+  .marketSection {
+    padding: 10rem 2rem;
+  }
 }
 
 .marketTitle {
@@ -162,6 +174,12 @@ line-height: 24.375px; /* 162.5% */
 .chartContainer {
   display: flex;
   gap: 1rem;
+}
+
+.chartImage {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 
 .yAxis {
@@ -267,8 +285,104 @@ line-height: 26px;
 }
 
 @media (max-width: 768px) {
+  .projectTitle{
+    color: #FFF;
+font-family: Montserrat;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: 35px; /* 125% */
+letter-spacing: -0.7px;
+  }
+  .container{
+    padding: 0 1rem;
+  }
+  .insightsSection{
+    padding: 3rem 0rem!important;
+  }
+  .projectSubtitle{
+    color: rgba(255, 255, 255, 0.70);
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22.75px; /* 162.5% */
+  }
+  .exploreBtn{
+    padding: 11.25px 20.5px 10.75px 21px;
+color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+line-height: 25.5px; /* 150% */
+  }
+  .marketSubtitle{
+    color: rgba(255, 255, 255, 0.60);
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22.75px; /* 162.5% */
+  }
+  .marketSection{
+    margin-top: 50px;
+  }
+  .marketTitle{
+    color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 32px;
+font-style: normal;
+font-weight: 700;
+line-height: 48px; /* 150% */
+  }
+  
+  .marketSection{
+    padding: 0px;
+  }
   .projectTitle {
     font-size: 2rem;
+  }
+  .statDescription{
+    color: rgba(255, 255, 255, 0.70);
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22.75px; /* 162.5% */
+  }
+ 
+  .projectTitle{
+    color: #FFF;
+font-family: Montserrat;
+font-size: 28px;
+font-style: normal;
+font-weight: 700;
+line-height: 35px; /* 125% */
+letter-spacing: -0.7px;
+  }
+  .projectSubtitle{
+    color: rgba(255, 255, 255, 0.70);
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 400;
+line-height: 22.75px; /* 162.5% */
+  }
+  .exploreBtn{
+    color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+line-height: 25.5px; /* 150% */
+padding: 11.25px 20.5px 10.75px 21px;
+
   }
   
   .marketTitle {
@@ -278,13 +392,29 @@ line-height: 26px;
   .statsGrid {
     grid-template-columns: 1fr;
   }
+
+  .chartSection {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 2rem;
+  }
   
   .chart {
     gap: 0.5rem;
     height: 300px;
   }
-  
-  .insightsSection {
-    padding: 3rem 1rem;
+
+  .chartContainer {
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
+
+  .chartImage {
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+  }
+  
+ 
 }

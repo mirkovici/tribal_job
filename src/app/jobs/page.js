@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import Header from '@/components/Header';
+import JobFilters from '@/components/JobFilters';
 import Image from 'next/image';
 import Footer from '@/components/Footer';
 
@@ -19,7 +20,19 @@ export default function JobsPage() {
   const [currentPage, setCurrentPage] = useState(1);
   const [expandedJobId, setExpandedJobId] = useState(null);
   const [collapsedFilters, setCollapsedFilters] = useState({});
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   const jobsPerPage = 10;
+
+  useEffect(() => {
+    if (isSidebarOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isSidebarOpen]);
 
   const toggleFilterCollapse = (filterName) => {
     setCollapsedFilters(prev => ({
@@ -43,6 +56,7 @@ export default function JobsPage() {
       posted: '2 days ago',
       avatar: 'N',
       color: '#4169E1',
+      isProject: true,
       about: 'Nordeus is a leading mobile games developer, best known for Top Eleven - the world\'s most successful mobile football manager game. With offices in Belgrade and London, we are a team of 200+ passionate professionals working on globally successful titles.',
       roleDescription: 'We\'re looking for a Senior Game Designer to join our team and help shape the future of our flagship title. You\'ll be working closely with product managers, developers, and artists to create engaging game features that delight millions of players worldwide.',
       responsibilities: [
@@ -113,7 +127,8 @@ export default function JobsPage() {
       seniority: 'Mid-level',
       posted: '4 days ago',
       avatar: 'M',
-      color: '#9333EA'
+      color: '#9333EA',
+      isProject: true
     },
     {
       id: 5,
@@ -139,7 +154,8 @@ export default function JobsPage() {
       seniority: 'Senior',
       posted: '3 days ago',
       avatar: 'R',
-      color: '#B91C1C'
+      color: '#B91C1C',
+      isProject: true
     },
     {
       id: 7,
@@ -229,194 +245,37 @@ export default function JobsPage() {
       </div>
 
       <div className={styles.container}>
-        <aside className={styles.sidebar}>
-          <div className={styles.filterHeader}>
-            <button className={styles.clearBtn} onClick={clearAllFilters}>Clear Filters</button>
-          </div>
-
-          <div className={styles.filterGroup}>
-            <div className={styles.filterHeader} onClick={() => toggleFilterCollapse('location')}>
-              <h3 className={styles.filterTitle}>LOCATION</h3>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 16 16" 
-                fill="currentColor"
-                className={`${styles.filterArrow} ${collapsedFilters.location ? styles.collapsed : ''}`}
-              >
-                <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-            {!collapsedFilters.location && (
-              <>
-                <div className={styles.searchFilter}>
-                  <svg width="14" height="14" viewBox="0 0 20 20" fill="none" className={styles.searchIcon}>
-                    <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
-                  </svg>
-                  <input type="text" placeholder="Search location..." className={styles.filterSearch} />
-                </div>
-                {['Global (Remote)', 'Europe', 'Serbia', 'Bosnia', 'Montenegro', 'Macedonia', 'Romania', 'Bulgaria'].map(loc => (
-                  <label key={loc} className={styles.checkboxLabel}>
-                    <input
-                      type="checkbox"
-                      checked={selectedLocation.includes(loc)}
-                      onChange={() => handleFilterToggle(selectedLocation, setSelectedLocation, loc)}
-                    />
-                    <span>{loc}</span>
-                  </label>
-                ))}
-              </>
-            )}
-          </div>
-
-          <div className={styles.filterGroup}>
-            <div className={styles.filterHeader} onClick={() => toggleFilterCollapse('workModel')}>
-              <h3 className={styles.filterTitle}>WORKING MODEL</h3>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 16 16" 
-                fill="currentColor"
-                className={`${styles.filterArrow} ${collapsedFilters.workModel ? styles.collapsed : ''}`}
-              >
-                <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-            {!collapsedFilters.workModel && (
-              <>
-                {['Remote', 'Hybrid', 'On-site', 'Flexible'].map(model => (
-                  <label key={model} className={styles.checkboxLabel}>
-                    <input
-                      type="checkbox"
-                      checked={selectedWorkModel.includes(model)}
-                      onChange={() => handleFilterToggle(selectedWorkModel, setSelectedWorkModel, model)}
-                    />
-                    <span>{model}</span>
-                  </label>
-                ))}
-              </>
-            )}
-          </div>
-
-          <div className={styles.filterGroup}>
-            <div className={styles.filterHeader} onClick={() => toggleFilterCollapse('jobType')}>
-              <h3 className={styles.filterTitle}>JOB TYPE</h3>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 16 16" 
-                fill="currentColor"
-                className={`${styles.filterArrow} ${collapsedFilters.jobType ? styles.collapsed : ''}`}
-              >
-                <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-            {!collapsedFilters.jobType && (
-              <>
-                {['Full-time', 'Part-time', 'Project-Based'].map(type => (
-                  <label key={type} className={styles.checkboxLabel}>
-                    <input
-                      type="checkbox"
-                      checked={selectedJobType.includes(type)}
-                      onChange={() => handleFilterToggle(selectedJobType, setSelectedJobType, type)}
-                    />
-                    <span>{type}</span>
-                  </label>
-                ))}
-              </>
-            )}
-          </div>
-
-          <div className={styles.filterGroup}>
-            <div className={styles.filterHeader} onClick={() => toggleFilterCollapse('contractType')}>
-              <h3 className={styles.filterTitle}>CONTRACT TYPE</h3>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 16 16" 
-                fill="currentColor"
-                className={`${styles.filterArrow} ${collapsedFilters.contractType ? styles.collapsed : ''}`}
-              >
-                <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-            {!collapsedFilters.contractType && (
-              <>
-                {['Employment contract', 'B2B', 'Freelance', 'Internship Contract'].map(contract => (
-                  <label key={contract} className={styles.checkboxLabel}>
-                    <input
-                      type="checkbox"
-                      checked={selectedContractType.includes(contract)}
-                      onChange={() => handleFilterToggle(selectedContractType, setSelectedContractType, contract)}
-                    />
-                    <span>{contract}</span>
-                  </label>
-                ))}
-              </>
-            )}
-          </div>
-
-          <div className={styles.filterGroup}>
-            <div className={styles.filterHeader} onClick={() => toggleFilterCollapse('seniority')}>
-              <h3 className={styles.filterTitle}>SENIORITY</h3>
-              <svg 
-                width="16" 
-                height="16" 
-                viewBox="0 0 16 16" 
-                fill="currentColor"
-                className={`${styles.filterArrow} ${collapsedFilters.seniority ? styles.collapsed : ''}`}
-              >
-                <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-              </svg>
-            </div>
-            {!collapsedFilters.seniority && (
-              <>
-                {['Intern', 'Junior', 'Mid-level', 'Senior', 'Lead', 'Principal', 'C-level'].map(level => (
-                  <label key={level} className={styles.checkboxLabel}>
-                    <input
-                      type="checkbox"
-                      checked={selectedSeniority.includes(level)}
-                      onChange={() => handleFilterToggle(selectedSeniority, setSelectedSeniority, level)}
-                    />
-                    <span>{level}</span>
-                  </label>
-                ))}
-              </>
-            )}
-          </div>
-
-          <div className={styles.filterGroup}>
-            <h3 className={styles.filterTitle}>ROLE TYPE</h3>
-            {['Individual contributor', 'Leadership'].map(type => (
-              <label key={type} className={styles.checkboxLabel}>
-                <input
-                  type="checkbox"
-                  checked={selectedRoleType.includes(type)}
-                  onChange={() => handleFilterToggle(selectedRoleType, setSelectedRoleType, type)}
-                />
-                <span>{type}</span>
-              </label>
-            ))}
-          </div>
-
-          <div className={styles.filterGroup}>
-            <h3 className={styles.filterTitle}>ROLE DEPARTMENT</h3>
-            {['Engineering & Development', 'Art', 'Product & Project', 'Design', 'Marketing & Growth', 'QA & Customer Development', 'Operations & Support', 'People & Culture', 'Finance & Legal', 'HR & People Leadership'].map(dept => (
-              <label key={dept} className={styles.checkboxLabel}>
-                <input
-                  type="checkbox"
-                  checked={selectedRoleDepartment.includes(dept)}
-                  onChange={() => handleFilterToggle(selectedRoleDepartment, setSelectedRoleDepartment, dept)}
-                />
-                <span>{dept}</span>
-              </label>
-            ))}
-          </div>
-
-          <div className={styles.filterFooter}>
-            <button className={styles.clearBtnBottom} onClick={clearAllFilters}>Clear Filters</button>
-          </div>
-        </aside>
+        <button className={styles.filtersBtn} onClick={() => setIsSidebarOpen(true)}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+          </svg>
+          Filters
+        </button>
+        
+        {isSidebarOpen && <div className={styles.sidebarOverlay} onClick={() => setIsSidebarOpen(false)} />}
+        
+        <JobFilters
+          isOpen={isSidebarOpen}
+          onClose={() => setIsSidebarOpen(false)}
+          selectedLocation={selectedLocation}
+          setSelectedLocation={setSelectedLocation}
+          selectedWorkModel={selectedWorkModel}
+          setSelectedWorkModel={setSelectedWorkModel}
+          selectedJobType={selectedJobType}
+          setSelectedJobType={setSelectedJobType}
+          selectedContractType={selectedContractType}
+          setSelectedContractType={setSelectedContractType}
+          selectedSeniority={selectedSeniority}
+          setSelectedSeniority={setSelectedSeniority}
+          selectedRoleType={selectedRoleType}
+          setSelectedRoleType={setSelectedRoleType}
+          selectedRoleDepartment={selectedRoleDepartment}
+          setSelectedRoleDepartment={setSelectedRoleDepartment}
+          collapsedFilters={collapsedFilters}
+          toggleFilterCollapse={toggleFilterCollapse}
+          handleFilterToggle={handleFilterToggle}
+          clearAllFilters={clearAllFilters}
+        />
 
         <main className={styles.mainContent}>
           <div className={styles.resultsHeader}>
@@ -440,7 +299,14 @@ export default function JobsPage() {
                 <div 
                   key={job.id} 
                   className={`${styles.jobCard} ${isExpanded ? styles.expanded : ''}`}
+                  onClick={() => setExpandedJobId(isExpanded ? null : job.id)}
+                  style={{ cursor: 'pointer' }}
                 >
+                  {job.isProject && (
+                    <div className={styles.projectBanner}>
+                      <span>PROJECT</span>
+                    </div>
+                  )}
                   <div className={styles.jobCardInner}>
                     <div className={styles.jobHeader}>
                       <div className={styles.avatar} style={{ backgroundColor: job.color }}>
@@ -473,7 +339,10 @@ export default function JobsPage() {
                         </span>
                         <button 
                           className={styles.applyBtn}
-                          onClick={() => setExpandedJobId(job.id)}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.location.href = '/login';
+                          }}
                         >
                           Apply
                         </button>
@@ -598,7 +467,10 @@ export default function JobsPage() {
                             >
                               Close
                             </button>
-                            <button className={styles.applyBtnLarge}>
+                            <button 
+                              className={styles.applyBtnLarge}
+                              onClick={() => window.location.href = '/login'}
+                            >
                               Apply 
                             </button>
                           </div>

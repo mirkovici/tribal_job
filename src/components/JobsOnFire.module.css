@@ -1,6 +1,12 @@
 .jobsSection {
   background: #151515;
-  padding: 10rem 2rem;
+  padding: 10rem 2.5rem;
+}
+
+@media (min-width: 769px) and (max-width: 1100px) {
+  .jobsSection {
+    padding: 10rem 1.5rem;
+  }
 }
 
 .container {
@@ -219,8 +225,72 @@ line-height: 30px; /* 150% */
 }
 
 @media (max-width: 768px) {
+  .subtitle{
+color: rgba(255, 255, 255, 0.60);
+font-family: Montserrat;
+font-size: 15px;
+font-style: normal;
+font-weight: 400;
+line-height: 22.5px; /* 150% */
+  }
+.jobTitle{
+  color: #FFF;
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: 25px; /* 125% */
+}
+.avatar{
+  width: 70px;
+  height: 70px;
+}
+.company{
+  color: #FE0032;
+font-size: 16px;
+font-weight: 700;
+line-height: 24px; 
+}
+.location{
+  font-size: 13px;
+  gap: 5px;
+}
+.posted{
+  font-size: 12px;
+}
+
+.viewJobBtn{
+  color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 21px; /* 150% */
+padding: 10.5px 23.578px 12.5px 24.5px;
+
+}
+.footer{
+  align-items: center;
+}
+.footerText{
+  display: none;
+}
+.viewAllBtn{
+  color: #FFF;
+text-align: center;
+font-family: Montserrat;
+font-size: 17px;
+font-style: normal;
+font-weight: 500;
+line-height: 25.5px; /* 150% */
+padding: 11.25px 20.844px 10.75px 21px;
+
+}
+
   .jobsGrid {
     grid-template-columns: 1fr;
+    gap: 20px;
   }
   
   .title {

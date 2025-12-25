@@ -69,8 +69,32 @@ const articles = [
   },
 ];
 
-// Extract unique tags
-const allTags = Array.from(new Set(articles.flatMap((article) => article.tags))).sort();
+// All available tags (fixed list)
+const allTags = [
+  'Artificial Intelligence',
+  'Beginners',
+  'Blockchain',
+  'Business Models',
+  'Career Advice',
+  'Career Growth',
+  'Cloud Gaming',
+  'Game Design',
+  'Game Engines',
+  'Global Markets',
+  'Graphics',
+  'Indie Games',
+  'Industry News',
+  'Market Trends',
+  'Mobile Gaming',
+  'Monetization',
+  'Performance',
+  'Productivity',
+  'Remote Work',
+  'Skills',
+  'Success Stories',
+  'Technology',
+  'Unreal Engine'
+];
 
 export default function NewsPage() {
   const [searchQuery, setSearchQuery] = useState('');

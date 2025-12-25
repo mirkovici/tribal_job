@@ -6,3 +6,10 @@
 .main {
   width: 100%;
 }
+
+@media (min-width: 769px) and (max-width: 1500px) {
+  /* .main {
+    padding: 0 2rem;
+  } */
+ 
+}

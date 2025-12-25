@@ -42,7 +42,7 @@ export default function Hero() {
         </div>
 
         <p className={styles.description}>
-          A specialized platform for all roles across the gaming industry<br />
+          A specialized platform for all roles across the gaming industry<br className='break-line-hero' />
           from engineering and operations to business and creative teams.
         </p>
 

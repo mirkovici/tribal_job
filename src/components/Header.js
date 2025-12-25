@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +18,14 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header 
       className={`${styles.header} ${isScrolled ? styles.blurred : ''}`}
@@ -26,18 +35,18 @@ export default function Header() {
       }}
     >
       <div className={styles.container}>
-     
-        
-        <nav className={styles.nav}>
-                   <Link href="/">
-        <Image
-          src="/images/logo_tribal.png"
-          alt="Tribal Jobs"
-          width={52}
-          height={52}
-        />
-      </Link>
+        {/* Logo */}
+        <Link href="/" className={styles.logo}>
+          <Image
+            src="/images/logo_tribal.png"
+            alt="Tribal Jobs"
+            width={52}
+            height={52}
+          />
+        </Link>
 
+        {/* Desktop Navigation */}
+        <nav className={styles.nav}>
           <Link href="/jobs">Jobs</Link>
           <Link href="/companies">Companies</Link>
           <Link href="/news">News</Link>
@@ -46,6 +55,7 @@ export default function Header() {
           <Link href="/contact">Contact</Link>
         </nav>
 
+        {/* Desktop Actions */}
         <div className={styles.actions}>
           <div className={styles.language}>
             <span className={styles.active}>ENG</span>
@@ -55,6 +65,44 @@ export default function Header() {
           <button className={styles.candidatesBtn}>Candidates</button>
           <button className={styles.employersBtn}>Employers</button>
         </div>
+
+        {/* Mobile Burger Menu Button */}
+        <button 
+          className={`${styles.burgerBtn} ${isMenuOpen ? styles.active : ''}`}
+          onClick={toggleMenu}
+          aria-label="Toggle menu"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" fill="none">
+            <path d="M3.5 10.5H17.5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3.5 15.75H17.5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
+            <path d="M3.5 5.25H17.5" stroke="white" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <div className={styles.mobileMenu}>
+            <nav className={styles.mobileNav}>
+              <Link href="/jobs" onClick={closeMenu}>Jobs</Link>
+              <Link href="/companies" onClick={closeMenu}>Companies</Link>
+              <Link href="/news" onClick={closeMenu}>News</Link>
+              <Link href="/pricing" onClick={closeMenu}>Pricing</Link>
+              <Link href="/about-us" onClick={closeMenu}>About Us</Link>
+              <Link href="/contact" onClick={closeMenu}>Contact</Link>
+              <Link href="/login" onClick={closeMenu}>Login</Link>
+              <Link href="/signup" onClick={closeMenu}>Sign Up</Link>
+            </nav>
+            
+            <div className={styles.mobileActionsBottom}>
+              <button className={styles.mobileEmployersBtn}>For Employers</button>
+              <div className={styles.mobileLanguage}>
+                <span className={styles.active}>ENG</span>
+                <span>/</span>
+                <span>SRB</span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </header>
   );

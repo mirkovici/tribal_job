@@ -5,6 +5,12 @@
   position: relative;
 }
 
+@media (min-width: 769px) and (max-width: 1500px) {
+  .partners {
+    padding: 3rem 2rem;
+  }
+}
+
 .marquee {
   max-width: 1440px;
   margin: 0 auto;
@@ -51,6 +57,7 @@
 }
 
 @media (max-width: 768px) {
+  
   .partnerName {
     font-size: 1.3rem;
     letter-spacing: 2px;
