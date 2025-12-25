@@ -3,11 +3,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from './Header.module.css';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showCandidatesDropdown, setShowCandidatesDropdown] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -62,7 +65,19 @@ export default function Header() {
             <span>/</span>
             <span>SRB</span>
           </div>
-          <button className={styles.candidatesBtn}>Candidates</button>
+          <div 
+            className={styles.candidatesWrapper}
+            onMouseEnter={() => setShowCandidatesDropdown(true)}
+            onMouseLeave={() => setShowCandidatesDropdown(false)}
+          >
+            <button className={styles.candidatesBtn}>Candidates</button>
+            {showCandidatesDropdown && (
+              <div className={styles.candidatesDropdown}>
+                <Link href="/login" className={styles.dropdownItem}>Login</Link>
+                <Link href="/signup" className={styles.dropdownItem}>Sign Up</Link>
+              </div>
+            )}
+          </div>
           <button className={styles.employersBtn}>Employers</button>
         </div>
 

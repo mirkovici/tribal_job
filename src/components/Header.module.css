@@ -82,6 +82,10 @@
   transition: all 0.3s;
 }
 
+.candidatesWrapper {
+  position: relative;
+}
+
 .candidatesBtn {
 border-radius: 7px;
 border: 1px solid #FFF;
@@ -93,11 +97,52 @@ font-size: 15px;
 font-style: normal;
 font-weight: 400;
 line-height: 22.5px; /* 150% */
+padding: 0.6rem 1.5rem;
+cursor: pointer;
+transition: all 0.3s;
 }
 
 .candidatesBtn:hover {
   border-color: var(--primary-red);
   color: red;
+}
+
+.candidatesDropdown {
+  position: absolute;
+  top: calc(100% + 2px);
+  left: 0;
+  background: rgba(21, 21, 21, 0.98);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(254, 0, 50, 0.3);
+  border-radius: 7px;
+  min-width: 150px;
+  box-shadow: 0 0 20px rgba(254, 0, 50, 0.2);
+  overflow: hidden;
+  z-index: 1001;
+  padding-top: 6px;
+  margin-top: -6px;
+}
+
+.dropdownItem {
+  display: block;
+  padding: 12px 20px;
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-weight: 400;
+  text-decoration: none;
+  transition: all 0.2s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.dropdownItem:last-child {
+  border-bottom: none;
+}
+
+.dropdownItem:hover {
+  background: rgba(254, 0, 50, 0.1);
+  color: var(--primary-red);
 }
 
 .employersBtn {
